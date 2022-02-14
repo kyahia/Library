@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 10px;
     gap: 10px;
     border: 1px solid black;
     border-radius: 50px;
@@ -15,4 +16,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+body{
+    text-align: center;
+}
+
+#show-lib{
+    margin: 50px;
+}
+
+.book-read{
+
+}
+
+.book-unread{
+
 }
