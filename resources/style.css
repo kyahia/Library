@@ -1,0 +1,35 @@
+.library{
+    border: 1px solid black;
+    border-radius: 2em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 210px);
+    padding: 1em;
+    gap: 1em;
+    justify-content: center;
+}
+
+.library div{
+    border-radius: 10px;
+    width : 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+body{
+    text-align: center;
+}
+
+#show-lib{
+    margin: 50px;
+}
+
+.read{
+    box-shadow: 0 0 0.5em 0.2em yellowgreen;
+}
+
+.unread{
+    box-shadow: 0 0 0.5em 0.2em red;
+}

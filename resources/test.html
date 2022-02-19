@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        div{
+            height: 50px;
+            width: 50px;
+            margin: 20px auto;
+        }
+        .read{
+            box-shadow: 0 0 2em 1em greenyellow;
+        }
+        .unread{
+            box-shadow: 0 0 2em 1em red;
+        }
+    </style>
+</head>
+<body>
+    <div class="read book"></div>
+    <button>click</button>
+
+    <script>
+        const btn = document.querySelector('button');
+        const div = document.querySelector('div');
+        btn.addEventListener('click', ()=>{
+            div.classList.toggle('read');
+            div.classList.toggle('unread');
+        });
+    </script>
+</body>
+</html>
