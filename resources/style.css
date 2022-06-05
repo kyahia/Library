@@ -1,3 +1,22 @@
+body{
+    text-align: center;
+}
+
+.form{
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 2em;
+    width: 350px;
+    padding: 1em;
+    margin: 0 auto;
+}
+
+label{
+    width: 10ch;
+    text-align: right;
+    display: inline-block;
+}
+
 .library{
     border: 1px solid black;
     border-radius: 2em;
@@ -13,13 +32,11 @@
     width : 200px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding-bottom: 1rem;
-}
-
-body{
-    text-align: center;
+    cursor: pointer;
+    position: relative;
 }
 
 #show-lib{
@@ -33,3 +50,23 @@ body{
 .unread{
     box-shadow: 0 0 0.5em 0.2em red;
 }
+
+.read span{
+    color: yellowgreen;
+}
+.unread span{
+    color: red;
+}
+
+.library span{
+    position: absolute;
+    top: 0;
+    left: 5px;
+    visibility: hidden;
+}
+
+.library div:hover span{
+    visibility: visible;
+}
+
+

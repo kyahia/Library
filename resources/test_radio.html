@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="is_read">Read ?</label>
+        <input type="radio" id="is_read" name="read" value="true">
+        <label for="is_unread">Unread ?</label>
+        <input type="radio" id="is_unread" name="read" value="false" checked>
+        <button type="submit">Add book</button>
+    </form>
+    
+
+    <script>
+        const radio = document.querySelectorAll("input");
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', e =>{
+            e.preventDefault();
+            radio.forEach(element => {
+                if(element.checked) console.log(typeof element.value);
+            });
+            
+        })
+    </script>
+</body>
+</html>

@@ -14,9 +14,11 @@ function exposeFunct() {
         const title = document.createElement('h1');
         const author = document.createElement('h2');
         const delet = document.createElement('button');
+        const postIt = document.createElement('span');
 
         title.textContent = book.title;
         author.textContent = book.author;
+        postIt.textContent = book.isRead ? "Read" : "Unread";
 
         delet.textContent = "DELETE BOOK";
         delet.classList.add(book.title.replace(/ /g, "."));
@@ -31,12 +33,14 @@ function exposeFunct() {
             book.isRead = !(book.isRead);
             card.classList.toggle("read");
             card.classList.toggle("unread");
+            card.querySelector('span').textContent = book.isRead ? "Read" : "Unread";
         });
 
 
         card.appendChild(title);
         card.appendChild(author);
         card.appendChild(delet);
+        card.appendChild(postIt);
 
         display.appendChild(card);
     });
@@ -62,13 +66,19 @@ function Book(title, author, isRead) {
 const form = document.querySelector('.form');
 const newTitle = form.querySelector('#title');
 const newAuthor = form.querySelector('#author');
-const newIsRead = form.querySelector('#is_read');
+const newIsRead = form.querySelectorAll("input[type='radio']");
 const submission = form.querySelector('button');
 submission.addEventListener('click', () => {
     if (newTitle.value.length * newAuthor.value.length > 0) {
-        array.push(new Book(newTitle.value, newAuthor.value, newIsRead.checked));
+        let isReadValue;
+        newIsRead.forEach(radio => {
+            if(radio.checked) {
+                isReadValue = radio.value;
+            }
+        })
+        array.push(new Book(newTitle.value, newAuthor.value, (isReadValue === 'true') ? true : false));
         newAuthor.value = newTitle.value = "";
-        newIsRead.checked = false;
+        
         exposeFunct();
     }
 });
