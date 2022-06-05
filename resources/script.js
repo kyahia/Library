@@ -63,12 +63,13 @@ function Book(title, author, isRead) {
 }
 
 // Form treatment
-const form = document.querySelector('.form');
+const form = document.querySelector('form');
 const newTitle = form.querySelector('#title');
 const newAuthor = form.querySelector('#author');
 const newIsRead = form.querySelectorAll("input[type='radio']");
-const submission = form.querySelector('button');
-submission.addEventListener('click', () => {
+const submission = form.querySelector('button[type="submit"]');
+form.addEventListener('submit', e => {
+    e.preventDefault();
     if (newTitle.value.length * newAuthor.value.length > 0) {
         let isReadValue;
         newIsRead.forEach(radio => {
@@ -89,3 +90,10 @@ const book2 = new Book("hamlet", "scheakspear", false);
 array.push(book1);
 array.push(book2);
 exposeFunct();
+
+const formBar = document.getElementById('toggle-form');
+formBar.addEventListener('click', () => {
+    document.querySelector('form').classList.toggle('hide');
+
+    formBar.textContent = (formBar.textContent === 'v') ? '^' : 'v';
+});
